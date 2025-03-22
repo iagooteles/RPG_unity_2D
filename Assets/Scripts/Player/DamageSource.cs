@@ -6,12 +6,10 @@ public class DamageSource : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("HIT!");
         if (collision.gameObject.GetComponent<EnemyAI>())
         {
-            Debug.Log("HIT!");
             EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-            enemyHealth.TakeDamage(damageAmount);
+            enemyHealth?.TakeDamage(damageAmount);
         }       
     }
 }

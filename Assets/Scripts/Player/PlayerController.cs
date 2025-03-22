@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int behindAmbienceSortingOrder = -6;
     [SerializeField] private int playerSortingOrder = 5;
 
+    private float startingMoveSpeed;
     private PlayerControls playerControls;
     private Vector2 movement;
     private Rigidbody2D rb;
@@ -49,6 +50,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         playerControls.Combat.Dash.performed += _ => Dash();
+
+        startingMoveSpeed = moveSpeed;
     }
 
     private void OnEnable()
@@ -125,12 +128,12 @@ public class PlayerController : MonoBehaviour
         if (mousePos.x < playerScreenPoint.x)
         {
             mySpriteRenderer.flipX = true;
-            FacingLeft = true;
+            _facingLeft = true;
         }
         else
         {
             mySpriteRenderer.flipX = false;
-            FacingLeft = false;
+            _facingLeft = false;
         }
     }
     
@@ -149,7 +152,7 @@ public class PlayerController : MonoBehaviour
     {
         float dashTime = .2f;
         yield return new WaitForSeconds(dashTime);
-        moveSpeed /= dashSpeed;
+        moveSpeed = startingMoveSpeed;
         myTrailRenderer.emitting = false;
         yield return new WaitForSeconds(dashCD);
         isDashing = false;
