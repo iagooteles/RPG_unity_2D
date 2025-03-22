@@ -1,0 +1,29 @@
+# Pastas geradas automaticamente pelo Unity (não versionar)
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+
+# Arquivos desnecessários
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# Configurações específicas de IDEs
+.vscode/
+.idea/
+*.userprefs
+
+# Cache de pacotes
+Packages/com.unity.package-manager*
